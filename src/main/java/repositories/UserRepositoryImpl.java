@@ -18,7 +18,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> getUserByUserName(String userName) {
+    public Optional<User> getUserByName(String userName) {
 
         return users.values().stream()
                 .filter(user -> user.getUserName().equals(userName))

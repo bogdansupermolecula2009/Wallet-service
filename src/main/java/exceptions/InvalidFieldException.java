@@ -1,6 +1,6 @@
 package exceptions;
 
-public class InvalidFieldException extends RuntimeException{
+public class InvalidFieldException extends Exception{
     public InvalidFieldException(String message){
         super(message);
     }

@@ -1,10 +1,19 @@
 package services.helpers;
 
-public interface IdGenerator {
+/**
+ * Класс для создания id
+ *
+ * @author Bogdan Andrianov
+ */
+public class IdGenerator {
+    private static Long id = 1L;
 
     /**
-     * Метод создания id
-     * @return - id
+     * Метод генерирующий id
+     *
+     * @return - сгенерированный id
      */
-    Long generateId();
+    public static Long generateId() {
+        return id++;
+    }
 }

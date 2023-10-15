@@ -72,10 +72,10 @@ public class WalletServiceImpl implements WalletService {
 
     @Override
     public List<Transaction> getTransactionHistory(Long userId, TransactionType transactionType) {
-        User user = getUserOrThrowException(userId);
-        return user.getTransactions().stream()
+         return transactionRepository.getTransactionsByUserId(userId).stream()
                 .filter(transaction -> transaction.getType().equals(transactionType))
                 .collect(Collectors.toList());
+
     }
 
 

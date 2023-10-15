@@ -6,6 +6,12 @@ import entities.enums.TransactionType;
 import java.math.BigDecimal;
 import java.util.List;
 
+
+/**
+ * Интерфейс предоставляющий методы для обслуживания счета пользователя
+ *
+ * @author Bogdan Andrianov
+ */
 public interface WalletService {
 
     /**

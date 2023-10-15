@@ -3,6 +3,7 @@ package repositories;
 import entities.Transaction;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Класс для работы с хранилищем транзакций
@@ -19,10 +20,10 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
 
     @Override
-    public Optional<Transaction> getTransactionByUserId(Long userId) {
+    public List<Transaction> getTransactionsByUserId(Long userId) {
         return transactions.values().stream()
                 .filter(transaction -> transaction.getUserId().equals(userId))
-                .findAny();
+                .collect(Collectors.toList());
     }
 
     @Override

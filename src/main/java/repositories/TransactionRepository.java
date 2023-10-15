@@ -5,6 +5,11 @@ import entities.Transaction;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Интерфейс предоставляющий методы для работы с хранилещем транзакций
+ *
+ * @author Bogdan Andrianov
+ */
 public interface TransactionRepository {
 
     /**
@@ -16,12 +21,12 @@ public interface TransactionRepository {
     Optional<Transaction> getTransactionById(Long transactionId);
 
     /**
-     * Метод получения транзакции конкретного пользователя
+     * Метод получения транзакций конкретного пользователя
      *
      * @param userId - id пользователя
-     * @return - транзакция или пустой Optional
+     * @return - список транзакций
      */
-    Optional<Transaction> getTransactionByUserId(Long userId);
+    List<Transaction> getTransactionsByUserId(Long userId);
 
     /**
      * Метод получения всех транзакций

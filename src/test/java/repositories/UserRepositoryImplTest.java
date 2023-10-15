@@ -4,14 +4,11 @@ import entities.Transaction;
 import entities.User;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserRepositoryImplTest {
 
@@ -22,12 +19,12 @@ class UserRepositoryImplTest {
     @Test
     void getUserByUsernameReturnedUser() {
         userRepository.addUser(user);
-        Assert.assertNotNull(userRepository.getUserByUserName("user"));
+        Assert.assertNotNull(userRepository.getUserByName("user"));
     }
 
     @Test
     void getUserByUsernameReturnedEmptyOptional() {
         userRepository.addUser(user);
-        Assertions.assertEquals(Optional.empty(), userRepository.getUserByUserName("user1"));
+        Assertions.assertEquals(Optional.empty(), userRepository.getUserByName("user1"));
     }
 }

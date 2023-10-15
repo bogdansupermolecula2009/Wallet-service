@@ -2,6 +2,7 @@ package in;
 
 import entities.User;
 import entities.enums.TransactionType;
+import exceptions.InvalidFieldException;
 import repositories.UserRepository;
 import services.UserService;
 import services.WalletService;
@@ -35,12 +36,21 @@ public class MainController {
         String input = scanner.nextLine();
         switch (input) {
             case "1" -> {
-                registrationUser();
+                try {
+                    registrationUser();
+                } catch (InvalidFieldException e) {
+                    System.err.println(e);
+                }
                 printMainMenu();
             }
             case "2" -> {
-                signIn();
-                choiceAction();
+                try {
+                    signIn();
+                    choiceAction();
+                } catch (InvalidFieldException e) {
+                    System.err.println(e);
+                }
+                printMainMenu();
             }
         }
     }
@@ -130,19 +140,20 @@ public class MainController {
     /**
      * Метод передает параметры из консоли в одноименный метод класса UserService
      */
-    public void registrationUser() {
+    public void registrationUser() throws InvalidFieldException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Придумайте имя: ");
         String username = scanner.nextLine();
         System.out.println("Придумайте пароль: ");
         String password = scanner.nextLine();
         userService.registerUser(username, password);
+
     }
 
     /**
      *Метод передает параметры из консоли в одноименный метод класса UserService
      */
-    public void signIn() {
+    public void signIn() throws InvalidFieldException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ваше имя: ");
         String username = scanner.nextLine();

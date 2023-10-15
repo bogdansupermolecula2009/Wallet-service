@@ -11,12 +11,6 @@ import java.time.Instant;
  */
 public class TransactionFactory {
 
-    private final IdGenerator idGenerator;
-
-    public TransactionFactory(IdGenerator idGenerator) {
-        this.idGenerator = idGenerator;
-    }
-
     /**
      * Метод создания транзакции
      * @param userId - идентификатор пользователя, пытающегося провести транзакцию
@@ -26,7 +20,7 @@ public class TransactionFactory {
      */
     public Transaction createTransaction(Long userId, BigDecimal sum, TransactionType type) {
         return Transaction.builder()
-                .transactionId(idGenerator.generateId())
+                .transactionId(IdGenerator.generateId())
                 .userId(userId)
                 .amount(sum)
                 .createdAt(Instant.now())
