@@ -10,7 +10,7 @@ import services.WalletServiceImpl;
 import services.helpers.TransactionFactory;
 
 /**
- * Главный классб который запускает приложение
+ * Главный класс который запускает приложение
  */
 public class App {
 
