@@ -1,3 +1,4 @@
+import configuration.liquibase.MigrationLiquibase;
 import in.MainController;
 import repositories.TransactionRepository;
 import repositories.TransactionRepositoryImpl;
@@ -15,6 +16,9 @@ import services.helpers.TransactionFactory;
 public class App {
 
     public static void main(String[] args) {
+
+        MigrationLiquibase.migrate();
+
         UserRepository userRepository = new UserRepositoryImpl();
         TransactionRepository transactionRepository = new TransactionRepositoryImpl();
         TransactionFactory transactionFactory = new TransactionFactory();
